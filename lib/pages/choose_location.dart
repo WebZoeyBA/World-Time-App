@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'loading.dart';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({super.key});
@@ -8,13 +10,6 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  int counter = 0;
-  @override
-  void initState() {
-    super.initState();
-    print('Init state function ran');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +22,13 @@ class _ChooseLocationState extends State<ChooseLocation> {
       ),
       body: OutlinedButton(
         onPressed: () {
-          setState(() {
-            counter += 1;
-          });
+          setState(() {});
         },
         child: Row(
           children: [
             Icon(Icons.add),
             Text(
-              'counter is : $counter',
+              'counter is ',
               style: TextStyle(color: Colors.white),
             )
           ],
