@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'loading.dart';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({super.key});
