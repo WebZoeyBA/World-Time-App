@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:world_time_app/services/world_time.dart';
 
 class Loading extends StatefulWidget {
-  const Loading({super.key});
-
   @override
-  State<Loading> createState() => _LoadingState();
+  _LoadingState createState() => _LoadingState();
 }
 
 class _LoadingState extends State<Loading> {
-  void setUpWorldTime() async {
+  void setupWorldTime() async {
     WorldTime instance = WorldTime(
         location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
     await instance.getTime();
@@ -22,14 +20,15 @@ class _LoadingState extends State<Loading> {
 
   @override
   void initState() {
-    setUpWorldTime();
+    super.initState();
+    setupWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(50.0),
         child: Text('loading'),
       ),
     );

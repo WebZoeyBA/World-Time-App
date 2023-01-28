@@ -1,36 +1,25 @@
 import 'package:flutter/material.dart';
 
 class ChooseLocation extends StatefulWidget {
-  const ChooseLocation({super.key});
-
   @override
-  State<ChooseLocation> createState() => _ChooseLocationState();
+  _ChooseLocationState createState() => _ChooseLocationState();
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 59, 99, 121),
-        title: Text("Choose location"),
+        backgroundColor: Colors.blue[900],
+        title: Text('Choose a Location'),
         centerTitle: true,
         elevation: 0,
-      ),
-      body: OutlinedButton(
-        onPressed: () {
-          setState(() {});
-        },
-        child: Row(
-          children: [
-            Icon(Icons.add),
-            Text(
-              'counter is ',
-              style: TextStyle(color: Colors.white),
-            )
-          ],
-        ),
       ),
     );
   }
