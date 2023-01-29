@@ -15,11 +15,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)!.settings.arguments as Map;
+    data = data.isNotEmpty
+        ? data
+        : ModalRoute.of(context)!.settings.arguments as Map;
     print(data);
 
     //set background
-    String bgImage = data['isDayTime'] ? 'day.jpg' : 'night.jpg';
+    String bgImage = data['isDayTime'] ? 'dayvalley.png' : 'darkvalley.png';
 
     return Scaffold(
       //appBar: AppBar(),
@@ -27,7 +29,7 @@ class _HomeState extends State<Home> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/day.png'),
+              image: AssetImage(bgImage),
               fit: BoxFit.cover,
             ),
           ),
@@ -36,38 +38,48 @@ class _HomeState extends State<Home> {
             child: Column(
               children: <Widget>[
                 TextButton.icon(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/location');
+                    style: TextButton.styleFrom(
+                        backgroundColor: Color.fromARGB(158, 49, 46, 46)),
+                    onPressed: () async {
+                      dynamic result =
+                          await Navigator.pushNamed(context, '/location');
+                      setState(() {
+                        data = {
+                          'time': result['time'],
+                          'location': result['location'],
+                          'flag': result['flag'],
+                          'isDayTime': result['isDayTime']
+                        };
+                      });
                     },
                     icon: Icon(
                       Icons.edit_location,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     label: Text(
                       'Edit Location',
                       style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14),
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
                     )),
-                SizedBox(height: 20.0),
+                SizedBox(height: 100.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       data['location'],
                       style: TextStyle(
-                        fontSize: 28.0,
-                        letterSpacing: 2.0,
-                      ),
+                          fontSize: 28.0,
+                          letterSpacing: 2.0,
+                          color: Colors.white),
                     ),
                   ],
                 ),
                 SizedBox(height: 20.0),
                 Text(data['time'],
-                    style: TextStyle(
-                      fontSize: 66.0,
-                    )),
+                    style: TextStyle(fontSize: 66.0, color: Colors.white)),
               ],
             ),
           ),

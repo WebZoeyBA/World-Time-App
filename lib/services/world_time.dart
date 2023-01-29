@@ -35,7 +35,7 @@ class WorldTime {
       // set the time property
       isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
       print(isDayTime);
-      time = DateFormat.jm().format(now);
+      time = DateFormat('HH:mm:ss').format(now);
     } catch (e) {
       time = 'could not get time';
     }
