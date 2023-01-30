@@ -73,6 +73,27 @@ flutter:
     - assets/usa.png
     - assets/south_korea.png
     - assets/indonesia.png
+    - assets/turkey.png
+    - assets/bih.png
+    - assets/norway1.png
+    - assets/russia.png
+    - assets/portugal.png
+    - assets/ecuador.png
+    - assets/brasil.png
+    - assets/iran.png
+    - assets/ukraine.png
+    - assets/kazakhstan.png
+    - assets/afghanistan.png
+    - assets/pakistan.png
+    - assets/china.png
+    - assets/india.png
+    - assets/burma.png
+    - assets/thailand.png
+    - assets/australia.png
+
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
